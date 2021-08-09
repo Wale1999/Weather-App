@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    background: url('https://source.unsplash.com/1600x900/?landscape');
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.container {
+    padding: 2em;
+    height: 60vh;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin: 1em;
+    border-radius: 10px 0 10px 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    margin: 40px auto;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    border: none;
+    outline: none;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 120%;
+    padding: 5px 10px;
+    height: 30px;
+    width: 150px;
+}
+
+button {
+    margin: 8px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: #7c7c7c2b;
+    transition: 0.1 ease-in-out;
+}
+
+.City {
+    margin: 20px;
+    font-weight: 400;
+}
+
+.weatherForecast.loading {
+    visibility: hidden;
+    position: relative;
+    max-height: 40px;
+    font-weight: lighter;
+}
+
+.weatherForecast.loading::after {
+    visibility: visible;
+    content: "Just a moment...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    height: 50px;
+}
+
+::placeholder {
+    color: #d4d4d4;
+}
