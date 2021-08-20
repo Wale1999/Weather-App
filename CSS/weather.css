@@ -85,3 +85,13 @@ button {
 ::placeholder {
     color: #d4d4d4;
 }
+
+.weatherForecast .description {
+    margin: 10px;
+    text-transform: capitalize;
+}
+
+.weatherForecast .humidity {
+    margin: 5px;
+    text-transform: capitalize;
+}

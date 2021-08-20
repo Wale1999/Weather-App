@@ -4,14 +4,17 @@ let weather = {
     'apiKey': '94f846d93b63d3c510c6d0b230ccbebe',
     getWeather: function(city) {
         fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + this.apiKey)
-            .then((response) => {
+            .then(response => {
                 return response.json();
             })
-            .then((data) => {
-                this.displayWeather();
+            .then(data => {
+                this.displayWeather(data);
+            })
+            .catch(error => {
+                return 'City not found';
             })
     },
-    //Accessing some of the values in the API that we'll need for our weather apps
+    //Accessing some of the values in the API that we'll need for our weather app
     displayWeather: function(data) {
         const { name } = data;
         const { icon, description } = data.weather[0];
@@ -23,8 +26,8 @@ let weather = {
         document.querySelector('.temperature').innerText = temp + "°C";
         document.querySelector('.icon').src = "https://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector('.description').innerText = description;
-        document.querySelector('.humidity').innerText = "Humidity" + humidity + "%";
-        document.querySelector('.wind').innerText = "Wind Speed" + speed + "km/h";
+        document.querySelector('.humidity').innerText = "Humidity: " + humidity + "%";
+        document.querySelector('.wind').innerText = "Wind Speed: " + speed + "km/h";
         document.querySelector('.weatherForecast').classList.remove('loading');
         document.body.backgroundImage = url
     },
@@ -39,8 +42,8 @@ document.querySelector('.searchBar button').addEventListener('click', function()
 });
 
 //Input bar when we press enter on our Keyboard 
-document.querySelector('.search-bar').addEventListener('keyup', function(e) {
-    if (e.key == "Enter") {
+document.querySelector('.search-bar').addEventListener('keyup', function(events) {
+    if (events.key == "Enter") {
         weather.search();
     }
 });
